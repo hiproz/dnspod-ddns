@@ -1,7 +1,10 @@
-export PATH=$PATH:/data/dnspod-shell-tcapi
+TOOL_ROOT=/data/dnspod-shell-tcapi
+export PATH=$PATH:$TOOL_ROOT
+chmod +x $TOOL_ROOT/openssl
+chmod +x $TOOL_ROOT/curl
 
 while true
 do
     dnspod.sh
-    sleep 10
+    sleep 60
 done

@@ -1,7 +1,4 @@
 # input para : domain subdomain recordtype
-chmod +x openssl
-chmod +x curl
-
 domain=$1
 subdomain=$2
 recordtype=$3
