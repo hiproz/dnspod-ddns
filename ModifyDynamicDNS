@@ -1,12 +1,10 @@
 # input para : domain subdomain recordtype ip
-script_dir=$(cd $(dirname $0);pwd)
-
 domain=$1
 subdomain=$2
 recordtype=$3
 ip=$4
 
-. $script_dir/DescribeRecordList $domain $subdomain $recordtype
+. DescribeRecordList $domain $subdomain $recordtype
 
 
 #echo "recordid:$record_id"
@@ -16,4 +14,4 @@ payload="{\"Domain\":\"$domain\",\"SubDomain\":\"$subdomain\",\"RecordId\":$reco
 
 #echo "$payload"
 
-. $script_dir/sign_tc_v3 "ModifyDynamicDNS" "$payload"
+. sign_tc_v3 "ModifyDynamicDNS" "$payload"

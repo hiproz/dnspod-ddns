@@ -12,9 +12,8 @@ On Android phones, use pure shell to dynamically update dnspod domain name recor
 1. Edit the key file and configure your actual Tencent API secret. Refer to https://console.cloud.tencent.com/capi.
 2. Refer to dnspod.sh and configure the domain name information you want to update.
 ```shell
-script_dir=$(cd $(dirname $0);pwd)
-. $script_dir/dnspodrec domain.com test A
-. $script_dir/dnspodrec domain.com testv6 AAAA
+. dnspodrec domain.com test A
+. dnspodrec domain.com testv6 AAAA
 ```
 3. You can implement real-time ddns domain name updates by calling ddns.sh regularly through cron or a scheduled script.
 

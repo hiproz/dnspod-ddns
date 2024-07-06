@@ -12,9 +12,8 @@
 1. 编辑key文件，配置自己的实际腾讯api secret，参考https://console.cloud.tencent.com/capi。
 2. 参考dnspod.sh，配置自己要更新的域名信息。
 ```shell
-script_dir=$(cd $(dirname $0);pwd)
-. $script_dir/dnspodrec domain.com test A
-. $script_dir/dnspodrec domain.com testv6 AAAA
+. dnspodrec domain.com test A
+. dnspodrec domain.com testv6 AAAA
 ```
 3. 通过cron或者定时脚本来定时调用 ddns.sh就可以实现实时ddns 域名更新了。
 

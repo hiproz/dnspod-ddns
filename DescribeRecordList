@@ -1,6 +1,4 @@
 # input para : domain subdomain recordtype
-script_dir=$(cd $(dirname $0);pwd)
-
 domain=$1
 subdomain=$2
 recordtype=$3
@@ -10,7 +8,7 @@ recordtype=$3
 payload="{\"Domain\":\"$domain\",\"Subdomain\":\"$subdomain\",\"RecordType\":\"$recordtype\"}"
 
 #echo $payload
-. $script_dir/sign_tc_v3 "DescribeRecordList" "$payload"
+. sign_tc_v3 "DescribeRecordList" "$payload"
 
 #echo "the rsp:$rsp"
 
