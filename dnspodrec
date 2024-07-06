@@ -1,0 +1,25 @@
+# input para : domain subdomain recordtype
+chmod +x openssl
+chmod +x curl
+
+domain=$1
+subdomain=$2
+recordtype=$3
+
+if [ "$recordtype" = "A" ]; then
+    value=$(curl -s 4.ipw.cn)
+elif [ "$recordtype" = "AAAA" ]; then
+    value=$(curl -s 6.ipw.cn)
+else
+    echo "invalid recordtype"
+    exit 1
+fi
+#echo "$value"
+if [ -n "$value" ]; then
+    . ModifyDynamicDNS $domain $subdomain $recordtype $value
+	if [[ $rsp == *"Error"* ]]; then
+        echo "$subdomain.$domain $recordtype $value Error"
+    else
+        echo "$subdomain.$domain $recordtype $value OK"
+    fi
+fi

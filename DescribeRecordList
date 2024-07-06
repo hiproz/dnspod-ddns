@@ -1,0 +1,18 @@
+# input para : domain subdomain recordtype
+script_dir=$(cd $(dirname $0);pwd)
+
+domain=$1
+subdomain=$2
+recordtype=$3
+
+#echo "$domain $subdomain $recordtype"
+
+payload="{\"Domain\":\"$domain\",\"Subdomain\":\"$subdomain\",\"RecordType\":\"$recordtype\"}"
+
+#echo $payload
+. $script_dir/sign_tc_v3 "DescribeRecordList" "$payload"
+
+#echo "the rsp:$rsp"
+
+record_id=$(echo "$rsp" |awk -F'"RecordId":' '{print $2}' | awk -F',' '{print $1}')
+#echo "id:$record_id"
